@@ -517,7 +517,7 @@ class Camellia_Converter
    * An array to function to charset conversion
    *
    * @access private
-   * @var array $_conversion_handlers (conversion rule => callback)
+   * @var array $_conversion_handlers (conversion rule => callback / callable)
    */
   var $_conversion_handlers = array(
     // JIS based CES
@@ -730,7 +730,7 @@ class Camellia_Converter
    * A handler function to process unmappable characters
    *
    * @access private
-   * @var callback $_replace_handler
+   * @var callable $_replace_handler
    */
   var $_replace_handler;
 
@@ -752,7 +752,7 @@ class Camellia_Converter
    */
   function availableCharsets()
   {
-    return $_available_charsets;
+    return $this->_available_charsets;
   }
 
   /**
@@ -860,7 +860,7 @@ class Camellia_Converter
    * Sets a handler function to process unmappable characters
    *
    * @access public
-   * @param callback $handler Handler function
+   * @param callable $handler Handler function
    * @return boolean TRUE on success; FALSE on failure
    */
   function setReplaceHandler($handler)
@@ -880,7 +880,7 @@ class Camellia_Converter
    * Returns a handler function to process unmappable characters
    *
    * @access public
-   * @return callback
+   * @return callable
    */
   function getReplaceHandler()
   {
