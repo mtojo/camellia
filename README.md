@@ -12,6 +12,7 @@ Usage
 
 Character encoding conversion:
 
+    require 'path/to/camellia/converter.php';
     $string = 'String encoded by Shift_JIS.';
     $conv = new Camellia_Converter;
     $string = $conv->convert('Shift_JIS', 'UTF-8', $string);
